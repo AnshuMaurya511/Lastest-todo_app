@@ -13,7 +13,7 @@ def create_app():
 
     load_dotenv()
 
-    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", 'default-fallback-key')
 
     app.config["SQLALCHEMY_DATABASE_URI"] = (
     f"mysql+pymysql://{os.getenv('DB_USER')}:"
