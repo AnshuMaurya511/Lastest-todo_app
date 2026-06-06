@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block title %} Task-Add {% endblock title %} {%
+block content %}
+<form action="{{ url_for('todo.task') }}" method="POST">
+  {{ form.csrf_token }} {{ form.task.label }} {{ form.task(placeholder = 'enter
+  Task ')}}
+  <input type="submit" name="add" class="btn btn-primary" value="Add" />
+  <a href="{{ url_for('todo.task_show') }}" class="btn btn-success">Show Task</a>
+</form>
+
+{% endblock content %}

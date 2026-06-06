@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+    Update Task
+{% endblock title %}
+
+{% block content %}
+
+
+    
+
+    <form method="POST">
+        {{ form.csrf_token }}
+
+        <div class="container-fluid">
+            <h4>Previous Task ==> <p>{{ pre_task.task }}</p></h4>
+            
+        </div>
+        {{ form.update_task.label }}
+        {{ form.update_task(placeholder = 'enter update task')}}
+        <input type="submit" name="update" value="Update Task">
+    </form>
+
+{% endblock content %}

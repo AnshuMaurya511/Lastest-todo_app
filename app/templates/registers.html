@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %} Registration {% endblock title %} {%
+block content %}
+
+
+<div>
+  <form action="{{ url_for('registers.sign_up') }}" method="POST" class="form-control">
+
+    <div class="row mb-3">
+      {{ form.csrf_token }} {{ form.fullname.label }} {{ form.fullname(placeholder
+      ='enter name', class="form-control")}}
+    </div>
+
+    <div class="row mb-3 align-item-center">
+      {{ form.email.label }} {{ form.email(placeholder = 'enter email address', class="form-control")}}
+    </div>
+    <div class="row mb-3">
+      {{ form.password.label }} {{ form.password(placeholder = 'create password ', class="form-control")}}
+    </div>
+
+    <div class="row mb-3">
+      {{ form.confirm_password.label }} {{ form.confirm_password(placeholder =
+      'confirm password', class="form-control")}}
+    </div>
+
+
+    <input type="submit" name="submit" id="submit" value="sign up" class="btn btn-primary" />
+  </form>
+</div>
+
+{% endblock content %}

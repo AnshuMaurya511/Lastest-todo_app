@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %} Task {% endblock title %} {% block
+content %}
+
+<table class="table">
+  {% if user_task %}
+
+  <thead>
+    <tr>
+      <th scope="col">S.no</th>
+      <th scope="col">Task</th>
+      <th scope="col">Date & Time</th>
+      <th scope="col">Task Status</th>
+      <th scope="col">customize</th>
+    </tr>
+  </thead>
+  {% for task in user_task %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ loop.index }}</th>
+      <td>{{ task.task }}</td>
+      <td>{{ task.date_time }}</td>
+      <td><a href="{{ url_for('todo.toggle', task_id = task.id) }}" class="btn btn-outline-info">{{task.work }}</a></td>
+      <td>
+        <a href="{{ url_for('todo.task_del', task_id = task.id) }}" class="btn btn-dark" >Delete</a>
+        <a href="{{ url_for('todo.task_upd',task_id = task.id ) }}" class="btn btn-success">Update</a>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+  {% else %}
+  <p>No Task Found.</p>
+  {% endif %}
+</table>
+<a href="{{ url_for('todo.task') }}" class = 'btn btn-primary'>Add new task</a>
+
+{% endblock content %}

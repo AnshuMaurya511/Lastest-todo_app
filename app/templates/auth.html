@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block title %} Login {% endblock title %} {% block
+content %}
+<form action="{{ url_for('auth.login') }}" method="POST" class="row g-3">
+  <div class="col-md-5">
+     {{ form.csrf_token }} {{ form.email.label }} {{ form.email(placeholder =
+  'enter email address', class="form-control")}}
+  </div>
+  <div class=" col-md-5">
+     {{ form.password.label }} {{ form.password(placeholder = 'enter password ', class="form-control")}}
+  </div>
+  <input type="submit" name="login" id="login" value="login" />
+</form>
+{% endblock content %}
